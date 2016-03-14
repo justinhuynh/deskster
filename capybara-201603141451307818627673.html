@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello World</title>
+    <link rel="stylesheet" href="/stylesheets/app.css" />
+  </head>
+  <body>
+    <h1>PORO</h1>
+
+Not that kind of PORO, silly!
+
+
+<h2>Add New Review</h2>
+<form action="/items/1/reviews" method="post">
+  <label for="review_username">Username</label>
+  <input type="text" name="review[username]" id="review_username" />
+
+  <label for="review_body">Body</label>
+  <input type="text" name="review[body]" id="review_body" />
+
+  <input type="submit" value="Submit"/>
+</form>
+
+
+    <script src="/javascripts/app.js"></script>
+  </body>
+</html>
