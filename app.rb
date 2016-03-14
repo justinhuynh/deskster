@@ -16,6 +16,24 @@ Dir[File.join(File.dirname(__FILE__), 'app', '**', '*.rb')].each do |file|
 end
 
 get '/' do
-  @title = "Hello World"
+  redirect '/items'
+end
+
+get '/items' do
+  @items = Item.all
   erb :index
+end
+
+get '/items/:id' do
+  @item = Item.find(params[:id])
+  @reviews = @item.reviews
+  erb :show
+end
+
+post '/items/:id/reviews' do
+  id = params[:id]
+  review = Review.new(params[:review])
+  review.item_id = id.to_i
+  review.save
+  redirect "/items/#{id}"
 end

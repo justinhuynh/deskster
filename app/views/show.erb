@@ -1,0 +1,21 @@
+<h2><%= @item.name %></h2>
+
+<%= @item.description %>
+
+<h2>Reviews for <%= @item.name %></h2>
+
+<% @reviews.each do |review| %>
+  <li><%= review.username %>: <%= review.body %></li>
+<% end %>
+
+<h2>Add New Review</h2>
+
+<form action="/items/<%= @item.id %>/reviews" method="post">
+  <label for="review_username">Username</label>
+  <input type="text" name="review[username]" id="review_username" />
+
+  <label for="review_body">Body</label>
+  <input type="text" name="review[body]" id="review_body" />
+
+  <input type="submit" value="Submit"/>
+</form>
